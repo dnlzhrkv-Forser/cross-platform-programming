@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ФармаЛайф — кросплатформний вебзастосунок інтернет-аптеки">
+  <title>ФармаЛайф — інтернет-аптека</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="ФармаЛайф — на головну">
+        <span class="logo__mark" aria-hidden="true">+</span>
+        <span class="logo__text">ФармаЛайф</span>
+      </a>
+      <nav class="nav" aria-label="Головне меню">
+        <a href="#features">Можливості</a>
+        <a href="#platforms">Платформи</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1>ФармаЛайф — аптека, яка завжди під рукою</h1>
+          <p class="hero__lead">
+            Кросплатформний вебзастосунок інтернет-аптеки: шукайте ліки,
+            порівнюйте ціни та оформлюйте замовлення з комп’ютера, планшета
+            або смартфона — інтерфейс однаково зручний на будь-якому екрані.
+          </p>
+          <button id="actionBtn" class="btn" type="button">Перейти до каталогу</button>
+          <p id="actionMsg" class="hero__msg" role="status" aria-live="polite"></p>
+        </div>
+        <aside class="hero__card" aria-label="Коротка інформація">
+          <p class="hero__card-title">Один код — усі пристрої</p>
+          <ul class="hero__stats">
+            <li><strong>3</strong> платформи</li>
+            <li><strong>1</strong> кодова база</li>
+            <li><strong>24/7</strong> доступ</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Основні функції застосунку</h2>
+        <ul class="features">
+          <li class="feature">
+            <h3>Каталог ліків</h3>
+            <p>Препарати розподілені за категоріями, з описом та інструкцією до кожного.</p>
+          </li>
+          <li class="feature">
+            <h3>Пошук і фільтри</h3>
+            <p>Швидкий пошук за назвою, виробником, ціною та наявністю рецепта.</p>
+          </li>
+          <li class="feature">
+            <h3>Кошик і замовлення</h3>
+            <p>Додавайте товари в кошик та оформлюйте замовлення в кілька кліків.</p>
+          </li>
+          <li class="feature">
+            <h3>Наявність в аптеках</h3>
+            <p>Перегляд залишків у найближчих аптеках мережі та їхнього графіка роботи.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="platforms" class="section section--alt">
+      <div class="container">
+        <h2>Де працює</h2>
+        <p class="section__lead">
+          Застосунок побудовано за WebView-підходом: це звичайний адаптивний сайт,
+          який також можна запакувати в мобільний застосунок за допомогою Capacitor.
+        </p>
+        <ul class="tags">
+          <li>Браузер на ПК</li>
+          <li>Планшет</li>
+          <li>Смартфон</li>
+          <li>Android / iOS (через Capacitor)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacts" class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 ФармаЛайф. Навчальний проєкт, ЛР №1.2.</p>
+      <p>Виконав: Жарков Данило, ВЕБ-21</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
