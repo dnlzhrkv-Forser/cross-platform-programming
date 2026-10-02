@@ -1,0 +1,4 @@
+<!-- genre-thriller: Трилер. Правила: viewBox 24x24, fill=currentColor, без stroke, evenodd для отворів -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false">
+  <path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.6 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm6.8 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12 13.2c2.1 0 3.4 1.2 3.4 2.7s-1.3 2.7-3.4 2.7-3.4-1.2-3.4-2.7 1.3-2.7 3.4-2.7z"/>
+</svg>

@@ -1,0 +1,77 @@
+{
+ "misyachna-havan": {
+  "source_size": "1000x1500",
+  "ratio": 0.6667,
+  "deviation_pct": 0,
+  "mode": "cover-crop (відхилення ≤2%)",
+  "master_kb": 44.3,
+  "out": {
+   "card": {
+    "file": "03_final_assets/posters/poster-misyachna-havan-card.webp",
+    "kb": 4.4,
+    "size": "320x480"
+   },
+   "detail": {
+    "file": "03_final_assets/posters/poster-misyachna-havan-detail.webp",
+    "kb": 12,
+    "size": "800x1200"
+   },
+   "thumb": {
+    "file": "03_final_assets/posters/poster-misyachna-havan-thumb.webp",
+    "kb": 1,
+    "size": "96x144"
+   }
+  },
+  "card_jpeg_q82_kb": 6.8
+ },
+ "zaliznyi-horyzont": {
+  "source_size": "1000x1333",
+  "ratio": 0.7502,
+  "deviation_pct": 12.53,
+  "mode": "pad/extend (+167px по висоті): кроп зачепив би текст",
+  "master_kb": 49.6,
+  "out": {
+   "card": {
+    "file": "03_final_assets/posters/poster-zaliznyi-horyzont-card.webp",
+    "kb": 6.1,
+    "size": "320x480"
+   },
+   "detail": {
+    "file": "03_final_assets/posters/poster-zaliznyi-horyzont-detail.webp",
+    "kb": 15.4,
+    "size": "800x1200"
+   },
+   "thumb": {
+    "file": "03_final_assets/posters/poster-zaliznyi-horyzont-thumb.webp",
+    "kb": 1.6,
+    "size": "96x144"
+   }
+  },
+  "card_jpeg_q82_kb": 9.2
+ },
+ "smikh-u-provulku": {
+  "source_size": "1000x1481",
+  "ratio": 0.6752,
+  "deviation_pct": 1.28,
+  "mode": "cover-crop (відхилення ≤2%)",
+  "master_kb": 42.9,
+  "out": {
+   "card": {
+    "file": "03_final_assets/posters/poster-smikh-u-provulku-card.webp",
+    "kb": 4.6,
+    "size": "320x480"
+   },
+   "detail": {
+    "file": "03_final_assets/posters/poster-smikh-u-provulku-detail.webp",
+    "kb": 12,
+    "size": "800x1200"
+   },
+   "thumb": {
+    "file": "03_final_assets/posters/poster-smikh-u-provulku-thumb.webp",
+    "kb": 1,
+    "size": "96x144"
+   }
+  },
+  "card_jpeg_q82_kb": 6.6
+ }
+}

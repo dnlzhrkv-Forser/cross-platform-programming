@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1333" viewBox="0 0 1000 1333" font-family="'DejaVu Sans', Verdana, sans-serif">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1220"/><stop offset=".6" stop-color="#8a2f3e"/><stop offset="1" stop-color="#d9505a"/></linearGradient></defs>
+<rect width="1000" height="1333" fill="url(#g)"/>
+<polygon fill="#f2c79b" points="553,93 333,449 465,449 403,706 676,314 535,314 623,93"/>
+<polygon fill="#f2c79b" fill-opacity=".92" points="400,980 550,800 600,980"/>
+<polygon fill="#f2c79b" fill-opacity=".92" points="620,980 680,840 800,980"/>
+<polygon fill="#f2c79b" fill-opacity=".92" points="120,800 550,980 300,980"/>
+<rect y="1040" width="1000" height="293" fill="#4a1220" fill-opacity="0.75"/>
+<text x="500" y="1153" text-anchor="middle" font-weight="700" font-size="75.8" fill="#f7d3a8">ЗАЛІЗНИЙ ГОРИЗОНТ</text>
+<text x="500" y="1220" text-anchor="middle" font-size="24.3" fill="#f0c9a6" letter-spacing="2.0">БОЙОВИК • КІНОПУЛЬС</text>
+</svg>

@@ -1,0 +1,36 @@
+{
+ "icons": 6,
+ "themes": 3,
+ "png": {
+  "files": 144,
+  "kb": 118.5,
+  "gen_ms": 318
+ },
+ "svg": {
+  "files": 6,
+  "kb": 1.7,
+  "gzip_kb": 1.24,
+  "sprite_kb": 1.48,
+  "sprite_gzip_kb": 0.5
+ },
+ "sharpness": [
+  {
+   "css_px": 16,
+   "dpr2_px": 32,
+   "psnr_png1x_stretched": 21.4,
+   "psnr_svg": 99
+  },
+  {
+   "css_px": 24,
+   "dpr2_px": 48,
+   "psnr_png1x_stretched": 23,
+   "psnr_svg": 99
+  },
+  {
+   "css_px": 32,
+   "dpr2_px": 64,
+   "psnr_png1x_stretched": 24.2,
+   "psnr_svg": 99
+  }
+ ]
+}

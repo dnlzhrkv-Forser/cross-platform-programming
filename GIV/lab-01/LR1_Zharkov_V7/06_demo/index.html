@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Кінопульс — демонстрація assets (ЛР №1, варіант 7)</title>
+    <link rel="stylesheet" href="../03_final_assets/css/components.css" />
+    <link rel="stylesheet" href="../03_final_assets/css/demo.css" />
+    <style>
+      .svg-sprite {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite">
+      <symbol id="genre-action" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13.5 1.5 4 13.4h6.2l-1.4 9.1 10.7-13h-6.6z" />
+      </symbol>
+      <symbol id="genre-comedy" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.6 8.2a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zm6.8 0a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zM7 14h10a5 5 0 0 1-10 0z"
+        />
+      </symbol>
+      <symbol id="genre-crime" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM6.5 7.6l4-1.5.5 1.4-4 1.5zM17.5 7.6l-4-1.5-.5 1.4 4 1.5zM8.8 9.3a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6zm6.4 0a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6zM8.5 15.2h7v1.6h-7z"
+        />
+      </symbol>
+      <symbol id="genre-drama" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" />
+      </symbol>
+      <symbol id="genre-horror" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M12 2a8 8 0 0 0-8 8v12l2.67-2.4L9.33 22 12 19.6 14.67 22l2.66-2.4L20 22V10a8 8 0 0 0-8-8zM9.5 9.4a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4zm5 0a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4z"
+        />
+      </symbol>
+      <symbol id="genre-thriller" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          fill-rule="evenodd"
+          d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.6 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm6.8 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12 13.2c2.1 0 3.4 1.2 3.4 2.7s-1.3 2.7-3.4 2.7-3.4-1.2-3.4-2.7 1.3-2.7 3.4-2.7z"
+        />
+      </symbol>
+    </svg>
+    <header class="site-header">
+      <div class="wrap">
+        <img
+          src="../03_final_assets/logo/logo-dark.svg"
+          alt=""
+          width="64"
+          height="40"
+        /><span class="brand">КІНОПУЛЬС</span>
+        <nav>
+          <a href="#">Афіша</a><a href="#">Кінотеатри</a><a href="#">Жанри</a>
+        </nav>
+        <button id="theme" type="button" aria-label="Перемкнути тему">
+          ◐ Тема
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <picture>
+        <source
+          media="(max-width:700px)"
+          srcset="../03_final_assets/hero/hero-mobile.webp"
+          width="720"
+          height="900"
+        />
+        <img
+          src="../03_final_assets/hero/hero-desktop.webp"
+          width="1600"
+          height="900"
+          alt=""
+          loading="eager"
+        />
+      </picture>
+      <div class="screen">
+        <h1>Кіно сьогодні ввечері</h1>
+        <p>Сеанси, постери та кінотеатри вашого міста</p>
+        <a class="cta" href="#">Обрати сеанс</a>
+      </div>
+    </section>
+
+    <main class="wrap">
+      <h2>Жанри</h2>
+      <div class="chips">
+        <button class="chip" aria-pressed="true">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#genre-action" /></svg
+          >Бойовик
+        </button>
+        <button class="chip">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#genre-comedy" /></svg
+          >Комедія
+        </button>
+        <button class="chip">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#genre-drama" /></svg
+          >Драма
+        </button>
+        <button class="chip">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#genre-horror" /></svg
+          >Жахи
+        </button>
+        <button class="chip">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#genre-thriller" /></svg
+          >Трилер
+        </button>
+        <button class="chip">
+          <svg aria-hidden="true" focusable="false">
+            <use href="#genre-crime" /></svg
+          >Кримінал
+        </button>
+      </div>
+
+      <h2>Сьогодні в кіно</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="badge badge--premiere">ПРЕМ’ЄРА</span
+          ><img
+            src="../03_final_assets/posters/poster-misyachna-havan-card.webp"
+            width="320"
+            height="480"
+            alt="Постер фільму «Місячна гавань»: місяць над нічною водою"
+            loading="lazy"
+          />
+          <h3>Місячна гавань</h3>
+          <small>Драма · 118 хв</small>
+        </article>
+        <article class="card">
+          <span class="badge badge--3d">3D</span
+          ><img
+            src="../03_final_assets/posters/poster-zaliznyi-horyzont-card.webp"
+            width="320"
+            height="480"
+            alt="Постер фільму «Залізний горизонт»: блискавка над уламками"
+            loading="lazy"
+          />
+          <h3>Залізний горизонт</h3>
+          <small>Бойовик · 132 хв</small>
+        </article>
+        <article class="card">
+          <img
+            src="../03_final_assets/posters/poster-smikh-u-provulku-card.webp"
+            width="320"
+            height="480"
+            alt="Постер фільму «Сміх у провулку»: бурштинове тло з плямами"
+            loading="lazy"
+          />
+          <h3>Сміх у провулку</h3>
+          <small>Комедія · 96 хв</small>
+        </article>
+        <article class="card">
+          <div
+            class="poster-placeholder"
+            role="img"
+            aria-label="Постер ще не завантажено"
+          >
+            <span>Постер незабаром</span>
+          </div>
+          <h3>Нічна зміна</h3>
+          <small>Трилер · 104 хв</small>
+        </article>
+      </div>
+
+      <h2>Розклад</h2>
+      <div class="rows">
+        <div class="row">
+          <img
+            src="../03_final_assets/posters/poster-misyachna-havan-thumb.webp"
+            width="96"
+            height="144"
+            alt=""
+          />
+          <div><b>Місячна гавань</b><small>Драма</small></div>
+          <div class="times">
+            <span>16:40</span><span>19:10</span><span>21:45</span>
+          </div>
+        </div>
+        <div class="row">
+          <img
+            src="../03_final_assets/posters/poster-zaliznyi-horyzont-thumb.webp"
+            width="96"
+            height="144"
+            alt=""
+          />
+          <div><b>Залізний горизонт</b><small>Бойовик</small></div>
+          <div class="times">
+            <span>15:20</span><span>18:00</span><span>20:30</span>
+          </div>
+        </div>
+        <div class="row">
+          <img
+            src="../03_final_assets/posters/poster-smikh-u-provulku-thumb.webp"
+            width="96"
+            height="144"
+            alt=""
+          />
+          <div><b>Сміх у провулку</b><small>Комедія</small></div>
+          <div class="times"><span>14:00</span><span>17:15</span></div>
+        </div>
+      </div>
+
+      <h2>Сторінка фільму</h2>
+      <div class="backdrop">
+        <div>
+          <h3>Залізний горизонт</h3>
+          <p>Бойовик · 132 хв · 16+</p>
+          <a class="cta" href="#">Купити квиток</a>
+        </div>
+      </div>
+      <footer>
+        Демонстраційна сторінка для перевірки assets: HTML-текст поверх графіки,
+        art-direction (picture), inline SVG-іконки, CSS-компоненти, світла/темна
+        тема.
+      </footer>
+    </main>
+    <script>
+      const r = document.documentElement,
+        b = document.getElementById("theme");
+      if (matchMedia("(prefers-color-scheme: dark)").matches)
+        r.dataset.theme = "dark";
+      b.onclick = () =>
+        (r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark");
+    </script>
+  </body>
+</html>

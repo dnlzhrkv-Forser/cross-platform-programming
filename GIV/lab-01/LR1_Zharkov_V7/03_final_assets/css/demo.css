@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font:
+    16px/1.5 system-ui,
+    "DejaVu Sans",
+    sans-serif;
+}
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 64px;
+}
+.site-header img {
+  height: 28px;
+  width: auto;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+}
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: 18px;
+  font-size: 0.95rem;
+}
+.site-header a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-header button {
+  background: transparent;
+  color: inherit;
+  border: 1px solid #6b6482;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.hero {
+  position: relative;
+  line-height: 0;
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hero .screen {
+  position: absolute;
+  left: 26.9%;
+  top: 9.9%;
+  width: 46.1%;
+  height: 30.2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.25;
+  color: #1c1233;
+  padding: 0 4%;
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.05rem, 3.1vw, 2.6rem);
+}
+.hero p {
+  margin: 0.4em 0 0.8em;
+  font-size: clamp(0.7rem, 1.25vw, 1.05rem);
+}
+.cta {
+  background: #1c1233;
+  color: #faf6f0;
+  padding: 0.5em 1.1em;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+  text-decoration: none;
+  line-height: 1.2;
+}
+@media (max-width: 700px) {
+  .site-header nav {
+    display: none;
+  }
+  .site-header button {
+    margin-left: auto;
+  }
+  .hero .screen {
+    left: 5.6%;
+    top: 13.3%;
+    width: 88.9%;
+    height: 27.8%;
+  }
+}
+h2 {
+  margin: 32px 0 14px;
+  font-size: 1.35rem;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 18px;
+}
+.card {
+  position: relative;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/3;
+  border-radius: 10px;
+  display: block;
+}
+.card .badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+.card .badge + .badge {
+  left: auto;
+  right: 8px;
+}
+.card h3 {
+  margin: 8px 0 2px;
+  font-size: 1rem;
+}
+.card small {
+  color: var(--muted);
+}
+.rows {
+  display: grid;
+  gap: 10px;
+}
+.row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.row img {
+  width: 48px;
+  height: 72px;
+  border-radius: 6px;
+}
+.row b {
+  display: block;
+}
+.times {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.times span {
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.backdrop {
+  position: relative;
+  min-height: 260px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #3a1220
+    url("../03_final_assets/backdrop/backdrop-zaliznyi-horyzont.webp")
+    center/cover;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+}
+.backdrop div {
+  padding: 24px;
+}
+.backdrop h3 {
+  margin: 0 0 6px;
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+}
+.backdrop p {
+  margin: 0 0 10px;
+  max-width: 34ch;
+}
+footer {
+  margin: 40px 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}

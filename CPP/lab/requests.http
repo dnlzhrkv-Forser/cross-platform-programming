@@ -1,0 +1,42 @@
+### Отримати всі препарати
+GET http://localhost:3000/api/medicines
+
+### Отримати препарат за id (підставте реальний id)
+GET http://localhost:3000/api/medicines/6abf520434ba95545f6e7e40
+### Створити новий препарат
+POST http://localhost:3000/api/medicines
+Content-Type: application/json
+
+{
+  "name": "Парацетамол 500 мг",
+  "category": "Жарознижувальні",
+  "manufacturer": "Дарниця",
+  "price": 45.5,
+  "prescriptionRequired": false,
+  "description": "Таблетки, 10 шт."
+}
+
+### Оновити препарат (підставте реальний id)
+PUT http://localhost:3000/api/medicines/6abf520434ba95545f6e7e40
+Content-Type: application/json
+
+{
+  "name": "Парацетамол 500 мг",
+  "category": "Жарознижувальні",
+  "manufacturer": "Дарниця",
+  "price": 52,
+  "prescriptionRequired": false,
+  "description": "Таблетки, 10 шт. (оновлено)"
+}
+
+### Видалити препарат (підставте реальний id)
+DELETE http://localhost:3000/api/medicines/6abf520434ba95545f6e7e40
+
+### Перевірка валідації (очікується 400)
+POST http://localhost:3000/api/medicines
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": 10
+}

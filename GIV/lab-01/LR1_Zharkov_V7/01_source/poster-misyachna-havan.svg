@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1500" viewBox="0 0 1000 1500" font-family="'DejaVu Sans', Verdana, sans-serif">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1740"/><stop offset=".55" stop-color="#24506a"/><stop offset="1" stop-color="#2a9d8f"/></linearGradient></defs>
+<rect width="1000" height="1500" fill="url(#g)"/>
+<circle cx="500" cy="405" r="170" fill="#e8e6e1"/>
+<path d="M0 998 1000 990" stroke="#fff" stroke-opacity=".22" stroke-width="1.6"/>
+<path d="M0 1028 1000 1020" stroke="#fff" stroke-opacity=".22" stroke-width="1.6"/>
+<path d="M0 1058 1000 1050" stroke="#fff" stroke-opacity=".22" stroke-width="1.6"/>
+<path d="M0 1088 1000 1080" stroke="#fff" stroke-opacity=".22" stroke-width="1.6"/>
+<path d="M0 1118 1000 1110" stroke="#fff" stroke-opacity=".22" stroke-width="1.6"/>
+<rect y="1170" width="1000" height="330" fill="#1b4f56" fill-opacity="0.92"/>
+<text x="500" y="1298" text-anchor="middle" font-weight="700" font-size="70.7" fill="#ffffff">МІСЯЧНА ГАВАНЬ</text>
+<text x="500" y="1372" text-anchor="middle" font-size="22.6" fill="#cfe3e1" letter-spacing="2.0">ДРАМА • КІНОПУЛЬС</text>
+</svg>

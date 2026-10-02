@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ФармаЛайф — кросплатформний вебзастосунок інтернет-аптеки"
+    />
+    <title>Каталог — ФармаЛайф</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="#top" aria-label="ФармаЛайф — на головну">
+          <span class="logo__mark" aria-hidden="true">+</span>
+          <span class="logo__text">ФармаЛайф</span>
+        </a>
+        <nav class="nav" aria-label="Головне меню"><a href="index.html">Головна</a><a href="catalog.html" aria-current="page">Каталог</a><a href="cart.html">Кошик <span class="cart-count">0</span></a><a href="admin.html">Адмін</a></nav>
+      </div>
+    </header>
+
+    <main>
+<div class="pagehead"><div class="container"><h1>Каталог ліків</h1><p>Шукайте, фільтруйте та додавайте ліки до кошика</p></div></div>
+<section class="section"><div class="container">
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="Пошук за назвою або виробником" aria-label="Пошук">
+    <select id="cat" aria-label="Категорія"><option value="">Усі категорії</option></select>
+    <select id="rx" aria-label="Рецепт"><option value="">Рецепт: будь-який</option><option value="0">Без рецепта</option><option value="1">За рецептом</option></select>
+    <select id="sort" aria-label="Сортування"><option value="">Без сортування</option><option value="asc">Ціна ↑</option><option value="desc">Ціна ↓</option></select>
+  </div>
+  <p id="state" class="muted" role="status">Завантаження…</p>
+  <div id="grid" class="grid"></div>
+</div></section>
+</main>
+
+<footer id="contacts" class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 ФармаЛайф. Навчальний проєкт, ЛР №2.</p>
+        <p>Виконав: Жарков Данило, ВЕБ-21</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+<script>
+let all = [];
+function render() {
+  const q = $('q').value.trim().toLowerCase(), c = $('cat').value, r = $('rx').value, s = $('sort').value;
+  const l = all.filter((m) => (!q || (m.name + ' ' + m.manufacturer).toLowerCase().includes(q)) && (!c || m.category === c) && (!r || m.prescriptionRequired === (r === '1')));
+  if (s) l.sort((a, b) => (s === 'asc' ? a.price - b.price : b.price - a.price));
+  $('state').textContent = l.length ? `Знайдено: ${l.length}` : 'Нічого не знайдено';
+  $('grid').innerHTML = l.map(cardHTML).join('');
+}
+(async () => {
+  try {
+    all = await api('/medicines');
+    [...new Set(all.map((m) => m.category))].sort().forEach((c) => $('cat').add(new Option(c, c)));
+    render();
+  } catch (e) { $('state').textContent = 'Не вдалося завантажити каталог: ' + e.message + '. Перевірте, чи запущено сервер.'; }
+})();
+['q', 'cat', 'rx', 'sort'].forEach((id) => $(id).addEventListener('input', render));
+</script>
+  </body>
+</html>
