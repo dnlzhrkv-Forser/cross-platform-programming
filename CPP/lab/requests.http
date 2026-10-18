@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/medicines
 
 ### Отримати препарат за id (підставте реальний id)
-GET http://localhost:3000/api/medicines/6abf520434ba95545f6e7e40
+GET http://localhost:3000/api/medicines/6abf55d2134f84e7c0e831f4
 ### Створити новий препарат
 POST http://localhost:3000/api/medicines
 Content-Type: application/json
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Оновити препарат (підставте реальний id)
-PUT http://localhost:3000/api/medicines/6abf520434ba95545f6e7e40
+PUT http://localhost:3000/api/medicines/6abf55d2134f84e7c0e831f4
 Content-Type: application/json
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 }
 
 ### Видалити препарат (підставте реальний id)
-DELETE http://localhost:3000/api/medicines/6abf520434ba95545f6e7e40
+DELETE http://localhost:3000/api/medicines/6abf55d2134f84e7c0e831f4
 
 ### Перевірка валідації (очікується 400)
 POST http://localhost:3000/api/medicines

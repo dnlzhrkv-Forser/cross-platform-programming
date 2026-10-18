@@ -294,3 +294,6 @@ body { background: #fbfdfc; }
 .table tbody tr:hover { background: #f6faf8; }
 .footer { margin-top: 0; }
 @media (max-width: 520px) { .hero { padding: 44px 0; } .status { align-self: center; } }
+
+/* атрибут hidden має працювати навіть для елементів із display (форма замовлення, кнопка «Скасувати») */
+[hidden] { display: none !important; }
