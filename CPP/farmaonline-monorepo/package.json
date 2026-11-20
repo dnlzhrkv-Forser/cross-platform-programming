@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "description": "ФармаОнлайн: монорепозиторій зі спільним ядром, веб-клієнтом (MongoDB Atlas) та десктопним клієнтом",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "npm test --workspaces --if-present",
     "start": "npm start -w farmaonline-server",
     "start:web": "npm start -w farmaonline-server",
     "dev:web": "npm run dev -w farmaonline-server",
     "seed": "npm run seed -w farmaonline-server",
-    "start:desktop": "npm start -w farmaonline-monorepo-desktop"
+    "start:desktop": "npm start -w farmaonline-monorepo-desktop",
+    "start:mobile": "npm start -w farmaonline-mobile"
   }
 }

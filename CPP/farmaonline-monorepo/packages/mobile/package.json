@@ -1,0 +1,24 @@
+{
+  "name": "farmaonline-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ФармаОнлайн Mobile (React Native + Expo) на спільному ядрі @farmaonline/core",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@farmaonline/core": "*",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "~58.0.25",
+    "expo-status-bar": "~58.0.5",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.11.1"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "test": "node --test",
+    "web": "expo start --web"
+  }
+}
