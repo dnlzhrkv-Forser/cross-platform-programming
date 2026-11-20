@@ -71,4 +71,4 @@ npm test -w @farmaonline/core   # лише ядро
 
 ## Посилання
 
-GitHub: <https://github.com/YOUR-LOGIN/farmaonline-monorepo>
+GitHub: [<https://github.com/YOUR-LOGIN/farmaonline-monorepo>](https://github.com/dnlzhrkv-Forser/cross-platform-programming/edit/master/README.md)
