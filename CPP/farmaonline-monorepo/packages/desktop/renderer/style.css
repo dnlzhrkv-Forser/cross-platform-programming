@@ -1,0 +1,106 @@
+:root {
+  --green: #1f9d6b;
+  --green-dark: #14724d;
+  --green-light: #e7f6ef;
+  --text: #1c2b26;
+  --muted: #5d6f68;
+  --bg-alt: #f4f8f6;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg-alt);
+}
+
+.header {
+  padding: 36px 20px 64px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green-dark), var(--green) 60%, #34c58d);
+}
+
+.header h1 { margin: 0 0 6px; font-size: 40px; }
+.header p { margin: 0; opacity: 0.92; font-size: 15px; }
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: -40px auto 0;
+  padding: 0 20px 30px;
+}
+
+.card {
+  margin-bottom: 20px;
+  padding: 22px 24px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(20, 114, 77, 0.12);
+}
+
+.card h2 { margin: 0 0 14px; font-size: 22px; color: var(--green-dark); }
+
+input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #cfdcd6;
+  border-radius: 10px;
+}
+
+input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(31, 157, 107, 0.2); }
+
+.row { display: flex; gap: 12px; }
+.row input { flex: 1; min-width: 0; }
+
+button {
+  padding: 10px 18px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--green);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover { background: var(--green-dark); }
+
+.message { min-height: 22px; margin: 12px 0 0; font-size: 14px; font-weight: 600; }
+.summary { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+
+.medicines-list { list-style: none; margin: 0; padding: 0; }
+
+.medicine-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  background: var(--green-light);
+  border-radius: 10px;
+}
+
+.medicine-info { display: flex; flex-direction: column; min-width: 0; }
+.medicine-name { font-weight: 600; }
+.medicine-details { font-size: 13px; color: var(--muted); }
+
+.delete-button { flex-shrink: 0; padding: 7px 12px; font-size: 13px; white-space: nowrap; background: #dc2626; }
+.delete-button:hover { background: #b91c1c; }
+
+/* Блок препарату та дата створення (спільне ядро) */
+.medicine-content { display: flex; flex-direction: column; min-width: 0; }
+.medicine-date { font-size: 12px; color: var(--muted); }
+#searchInput { margin-bottom: 8px; }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ФармаОнлайн Desktop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>ФармаОнлайн Desktop</h1>
+      <p>Десктопна версія застосунку аптеки на спільному ядрі @farmaonline/core</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Додати препарат</h2>
+        <input id="medicineName" type="text" placeholder="Назва препарату" />
+        <div class="row">
+          <input id="medicinePrice" type="text" inputmode="decimal" placeholder="Ціна, ₴" />
+          <input id="medicineQuantity" type="text" inputmode="numeric" placeholder="Кількість" value="1" />
+        </div>
+        <button id="addMedicineButton">Додати препарат</button>
+        <p id="message" class="message"></p>
+      </section>
+
+      <section class="card">
+        <h2>Список препаратів</h2>
+        <input id="searchInput" type="text" placeholder="Пошук за назвою" />
+        <p id="summary" class="summary"></p>
+        <ul id="medicinesList" class="medicines-list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ФармаЛайф — кросплатформний вебзастосунок інтернет-аптеки"
+    />
+    <title>Кошик — ФармаЛайф</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="#top" aria-label="ФармаЛайф — на головну">
+          <span class="logo__mark" aria-hidden="true">+</span>
+          <span class="logo__text">ФармаЛайф</span>
+        </a>
+        <nav class="nav" aria-label="Головне меню"><a href="index.html">Головна</a><a href="catalog.html">Каталог</a><a href="cart.html" aria-current="page">Кошик <span class="cart-count">0</span></a><a href="admin.html">Адмін</a></nav>
+      </div>
+    </header>
+
+    <main>
+<div class="pagehead"><div class="container"><h1>Кошик</h1><p>Перевірте замовлення та вкажіть дані для доставки</p></div></div>
+<section class="section"><div class="container">
+  <div id="cartBox"></div>
+  <form id="orderForm" class="form" hidden>
+    <h2>Оформлення замовлення</h2>
+    <label>Ім’я<input name="name" required autocomplete="name"></label>
+    <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+380…"></label>
+    <label>Адреса доставки<input name="address" required autocomplete="street-address"></label>
+    <button class="btn" type="submit">Підтвердити замовлення</button>
+  </form>
+</div></section>
+</main>
+
+<footer id="contacts" class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 ФармаЛайф. Навчальний проєкт, ЛР №2.</p>
+        <p>Виконав: Жарков Данило, ВЕБ-21</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+<script>
+function draw() {
+  const c = Cart.get(), box = $('cartBox');
+  $('orderForm').hidden = !c.length;
+  if (!c.length) { box.innerHTML = '<p class="muted">Кошик порожній. <a href="catalog.html">Перейти до каталогу</a></p>'; return; }
+  box.innerHTML = `<div class="table-wrap"><table class="table"><thead><tr><th>Препарат</th><th>Ціна</th><th>К-сть</th><th>Сума</th><th></th></tr></thead><tbody>` +
+    c.map((i) => `<tr><td>${esc(i.name)}</td><td>${money(i.price)}</td><td class="nowrap"><button class="qty" data-d="-1" data-id="${i.id}" aria-label="Менше">−</button> ${i.qty} <button class="qty" data-d="1" data-id="${i.id}" aria-label="Більше">+</button></td><td>${money(i.price * i.qty)}</td><td><button class="link link--red" data-rm="${i.id}">Видалити</button></td></tr>`).join('') +
+    `</tbody></table></div><p class="total">Разом: <strong>${money(c.reduce((s, i) => s + i.price * i.qty, 0))}</strong></p>`;
+}
+$('cartBox').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  const c = Cart.get();
+  if (b.dataset.rm) Cart.save(c.filter((i) => i.id !== b.dataset.rm));
+  else if (b.dataset.d) { c.find((x) => x.id === b.dataset.id).qty += +b.dataset.d; Cart.save(c.filter((x) => x.qty > 0)); }
+  draw();
+});
+$('orderForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  try {
+    const o = await api('/orders', { method: 'POST', body: { name: f.get('name'), phone: f.get('phone'), address: f.get('address'), items: Cart.get() } });
+    Cart.save([]); e.target.reset(); draw();
+    $('cartBox').innerHTML = `<div class="notice">Замовлення №${o._id.slice(-6).toUpperCase()} оформлено на суму ${money(o.total)}. Дякуємо!</div>`;
+  } catch (err) { toast(err.message, true); }
+});
+draw();
+</script>
+  </body>
+</html>

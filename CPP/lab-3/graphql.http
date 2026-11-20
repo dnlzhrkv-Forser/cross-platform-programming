@@ -1,0 +1,108 @@
+### Реєстрація
+POST http://localhost:4001/
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  register(name: "Іван Петренко", email: "ivan@example.com", password: "123456") {
+    token
+    user { id name email }
+  }
+}
+
+### Вхід
+POST http://localhost:4001/
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  login(email: "ivan@example.com", password: "123456") {
+    token
+    user { id name email }
+  }
+}
+
+### Поточний користувач (підставте токен)
+POST http://localhost:4001/
+Content-Type: application/json
+Authorization: Bearer <token>
+X-REQUEST-TYPE: GraphQL
+
+query {
+  me { id name email }
+}
+
+### Каталог препаратів (публічний)
+POST http://localhost:4001/
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query {
+  medicines { id name category manufacturer price prescriptionRequired owner { name } }
+}
+
+### Створити препарат (потрібен токен)
+POST http://localhost:4001/
+Content-Type: application/json
+Authorization: Bearer <token>
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createMedicine(name: "Парацетамол 500 мг", category: "Жарознижувальні", manufacturer: "Дарниця", price: 45.5, description: "Таблетки, 10 шт.") {
+    id name price owner { id name }
+  }
+}
+
+### Створити препарат без токена (очікується «Потрібна авторизація.»)
+POST http://localhost:4001/
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createMedicine(name: "Парацетамол 500 мг", category: "Жарознижувальні", manufacturer: "Дарниця", price: 45.5) {
+    id
+  }
+}
+
+### Оновити препарат (токен + реальний id)
+POST http://localhost:4001/
+Content-Type: application/json
+Authorization: Bearer <token>
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  updateMedicine(id: "<id>", name: "Парацетамол 500 мг", category: "Жарознижувальні", manufacturer: "Дарниця", price: 52) {
+    id price
+  }
+}
+
+### Видалити препарат (токен + реальний id)
+POST http://localhost:4001/
+Content-Type: application/json
+Authorization: Bearer <token>
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  deleteMedicine(id: "<id>")
+}
+
+### Оформити замовлення (відкрита операція)
+POST http://localhost:4001/
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+mutation {
+  createOrder(name: "Іван Петренко", phone: "+380501234567", address: "м. Київ, вул. Хрещатик, 1", items: [{ id: "<id>", qty: 2 }]) {
+    id name total items { name price qty }
+  }
+}
+
+### Список замовлень (потрібен токен)
+POST http://localhost:4001/
+Content-Type: application/json
+Authorization: Bearer <token>
+X-REQUEST-TYPE: GraphQL
+
+query {
+  orders { id name phone total items { name qty } }
+}

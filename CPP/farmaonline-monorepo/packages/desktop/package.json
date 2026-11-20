@@ -1,0 +1,18 @@
+{
+  "name": "farmaonline-monorepo-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ФармаОнлайн Desktop на спільному ядрі @farmaonline/core",
+  "type": "module",
+  "main": "main.js",
+  "dependencies": {
+    "@farmaonline/core": "*"
+  },
+  "devDependencies": {
+    "electron": "^45.3.2"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test"
+  }
+}

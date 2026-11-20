@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ФармаЛайф — кросплатформний вебзастосунок інтернет-аптеки"
+    />
+    <title>Адмін-панель — ФармаЛайф</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="#top" aria-label="ФармаЛайф — на головну">
+          <span class="logo__mark" aria-hidden="true">+</span>
+          <span class="logo__text">ФармаЛайф</span>
+        </a>
+        <nav class="nav" aria-label="Головне меню"><a href="index.html">Головна</a><a href="catalog.html">Каталог</a><a href="cart.html">Кошик <span class="cart-count">0</span></a><a href="admin.html" aria-current="page">Адмін</a></nav>
+      </div>
+    </header>
+
+    <main>
+<div class="pagehead"><div class="container"><h1>Адмін-панель</h1><p>Керування препаратами та замовленнями (CRUD)</p></div></div>
+<section class="section"><div class="container">
+  <form id="medForm" class="form form--grid">
+    <h2 id="formTitle">Додати препарат</h2>
+    <label>Назва<input name="name" required></label>
+    <label>Категорія<input name="category" required></label>
+    <label>Виробник<input name="manufacturer" required></label>
+    <label>Ціна, ₴<input name="price" type="number" min="0" step="0.01" required></label>
+    <label class="full">Опис<input name="description"></label>
+    <label class="check"><input name="rx" type="checkbox"> Відпускається за рецептом</label>
+    <div class="full actions"><button class="btn" type="submit" id="saveBtn">Додати</button><button class="btn btn--ghost" type="button" id="cancel" hidden>Скасувати</button></div>
+  </form>
+  <h2>Препарати</h2><div id="medTable"></div>
+  <h2>Замовлення</h2><div id="orders"></div>
+</div></section>
+</main>
+
+<footer id="contacts" class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 ФармаЛайф. Навчальний проєкт, ЛР №2.</p>
+        <p>Виконав: Жарков Данило, ВЕБ-21</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+<script>
+const F = $('medForm');
+let meds = [];
+const wrap = (head, rows) => `<div class="table-wrap"><table class="table"><thead><tr>${head.map((h) => `<th>${h}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>`;
+async function load() {
+  try {
+    meds = await api('/medicines');
+    $('medTable').innerHTML = meds.length ? wrap(['Назва', 'Категорія', 'Виробник', 'Ціна', 'Рецепт', ''],
+      meds.map((m) => `<tr><td>${esc(m.name)}</td><td>${esc(m.category)}</td><td>${esc(m.manufacturer)}</td><td>${money(m.price)}</td><td>${m.prescriptionRequired ? 'так' : 'ні'}</td><td class="nowrap"><button class="link" data-edit="${m._id}">Редагувати</button> <button class="link link--red" data-del="${m._id}">Видалити</button></td></tr>`).join('')) : '<p class="muted">Препаратів ще немає.</p>';
+    const os = await api('/orders');
+    $('orders').innerHTML = os.length ? wrap(['№', 'Дата', 'Клієнт', 'Телефон', 'Склад', 'Сума'],
+      os.map((o) => `<tr><td>${o._id.slice(-6).toUpperCase()}</td><td>${new Date(o.createdAt).toLocaleString('uk-UA')}</td><td>${esc(o.name)}</td><td>${esc(o.phone)}</td><td>${o.items.map((i) => esc(i.name) + ' × ' + i.qty).join(', ')}</td><td>${money(o.total)}</td></tr>`).join('')) : '<p class="muted">Замовлень поки немає.</p>';
+  } catch (e) { toast(e.message + ' (перевірте, чи запущено сервер)', true); }
+}
+function reset() { F.reset(); F.dataset.id = ''; $('formTitle').textContent = 'Додати препарат'; $('saveBtn').textContent = 'Додати'; $('cancel').hidden = true; }
+F.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const v = F.elements, id = F.dataset.id;
+  const body = { name: v.name.value, category: v.category.value, manufacturer: v.manufacturer.value, price: parseFloat(v.price.value), prescriptionRequired: v.rx.checked, description: v.description.value };
+  try {
+    await api('/medicines' + (id ? '/' + id : ''), { method: id ? 'PUT' : 'POST', body });
+    toast(id ? 'Препарат оновлено' : 'Препарат додано'); reset(); load();
+  } catch (err) { toast(err.message, true); }
+});
+$('cancel').addEventListener('click', reset);
+$('medTable').addEventListener('click', async (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.edit) {
+    const m = meds.find((x) => x._id === b.dataset.edit), v = F.elements;
+    v.name.value = m.name; v.category.value = m.category; v.manufacturer.value = m.manufacturer; v.price.value = m.price; v.description.value = m.description || ''; v.rx.checked = m.prescriptionRequired;
+    F.dataset.id = m._id; $('formTitle').textContent = 'Редагувати препарат'; $('saveBtn').textContent = 'Зберегти'; $('cancel').hidden = false;
+    F.scrollIntoView({ behavior: 'smooth' });
+  } else if (b.dataset.del && confirm('Видалити цей препарат?')) {
+    try { await api('/medicines/' + b.dataset.del, { method: 'DELETE' }); toast('Препарат видалено'); load(); } catch (err) { toast(err.message, true); }
+  }
+});
+load();
+</script>
+  </body>
+</html>

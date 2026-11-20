@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ФармаОнлайн — інтернет-аптека на спільному ядрі та MongoDB Atlas" />
+    <title>Кошик — ФармаОнлайн</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">{ "imports": { "@farmaonline/core": "/core/index.js" } }</script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="index.html" aria-label="ФармаОнлайн — на головну">
+          <span class="logo__mark" aria-hidden="true">+</span>
+          <span class="logo__text">ФармаОнлайн</span>
+        </a>
+        <nav class="nav" aria-label="Головне меню"><a href="index.html">Головна</a><a href="catalog.html">Каталог</a><a href="cart.html" aria-current="page">Кошик <span class="cart-count">0</span></a><a href="admin.html">Адмін</a></nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="pagehead"><div class="container"><h1>Кошик</h1><p>Перевірте замовлення та вкажіть дані для доставки</p></div></div>
+      <section class="section"><div class="container">
+        <div id="cartBox"></div>
+        <form id="orderForm" class="form" hidden novalidate>
+          <h2>Оформлення замовлення</h2>
+          <label>Ім’я<input name="name" required autocomplete="name"></label>
+          <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+380…"></label>
+          <label>Адреса доставки<input name="address" required autocomplete="street-address"></label>
+          <button class="btn" type="submit">Підтвердити замовлення</button>
+        </form>
+      </div></section>
+    </main>
+
+    <footer id="contacts" class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 ФармаОнлайн. Навчальний проєкт, ЛР №7-8.</p>
+        <p>Виконав: Жарков Данило, ВЕБ-21</p>
+      </div>
+    </footer>
+
+    <script type="module" src="cart.js"></script>
+  </body>
+</html>

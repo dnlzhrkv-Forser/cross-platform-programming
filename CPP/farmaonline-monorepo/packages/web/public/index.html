@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ФармаОнлайн — інтернет-аптека на спільному ядрі та MongoDB Atlas" />
+    <title>ФармаОнлайн — інтернет-аптека</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">{ "imports": { "@farmaonline/core": "/core/index.js" } }</script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="index.html" aria-label="ФармаОнлайн — на головну">
+          <span class="logo__mark" aria-hidden="true">+</span>
+          <span class="logo__text">ФармаОнлайн</span>
+        </a>
+        <nav class="nav" aria-label="Головне меню"><a href="index.html" aria-current="page">Головна</a><a href="catalog.html">Каталог</a><a href="cart.html">Кошик <span class="cart-count">0</span></a><a href="admin.html">Адмін</a></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <h1>ФармаОнлайн — аптека, яка завжди під рукою</h1>
+            <p class="hero__lead">
+              Веб-версія застосунку інтернет-аптеки: каталог ліків, кошик і
+              замовлення зберігаються в базі даних MongoDB Atlas, а уся логіка
+              перевірки даних — у спільному ядрі, яке працює і в браузері, і на сервері.
+            </p>
+            <a class="btn" href="catalog.html">Перейти до каталогу</a>
+          </div>
+          <aside class="hero__card" aria-label="Коротка інформація">
+            <p class="hero__card-title">Один код — усі клієнти</p>
+            <ul class="hero__stats">
+              <li><strong>1</strong> спільне ядро</li>
+              <li><strong>Atlas</strong> кластер MongoDB</li>
+              <li><strong>24/7</strong> доступ</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <h2>Основні функції застосунку</h2>
+          <ul class="features">
+            <li class="feature"><span class="feature__icon" aria-hidden="true">💊</span><h3>Каталог ліків</h3><p>Препарати розподілені за категоріями, з описом, виробником і ціною.</p></li>
+            <li class="feature"><span class="feature__icon" aria-hidden="true">🔍</span><h3>Пошук і фільтри</h3><p>Швидкий пошук за назвою, виробником, ціною та наявністю рецепта.</p></li>
+            <li class="feature"><span class="feature__icon" aria-hidden="true">🛒</span><h3>Кошик і замовлення</h3><p>Додавайте товари в кошик та оформлюйте замовлення — воно збережеться в базі.</p></li>
+            <li class="feature"><span class="feature__icon" aria-hidden="true">🛠️</span><h3>Адмін-панель</h3><p>Додавання, редагування й видалення препаратів та перегляд замовлень.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Популярні препарати</h2>
+          <div id="featured" class="grid"></div>
+          <p class="more"><a href="catalog.html">Увесь каталог →</a></p>
+        </div>
+      </section>
+
+      <section id="platforms" class="section section--alt">
+        <div class="container">
+          <h2>Архітектура</h2>
+          <p class="section__lead">
+            Монорепозиторій npm workspaces: пакет <code>@farmaonline/core</code> містить
+            перевірку даних і логіку аптеки, <code>server</code> підключає до нього адаптер
+            MongoDB, а цей сайт звертається до сервера через REST API.
+          </p>
+          <ul class="tags">
+            <li>Браузер</li>
+            <li>Express REST API</li>
+            <li>MongoDB Atlas</li>
+            <li>Спільне ядро</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacts" class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 ФармаОнлайн. Навчальний проєкт, ЛР №7-8.</p>
+        <p>Виконав: Жарков Данило, ВЕБ-21</p>
+      </div>
+    </footer>
+
+    <script type="module" src="home.js"></script>
+  </body>
+</html>

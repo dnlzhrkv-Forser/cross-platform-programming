@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ФармаЛайф Desktop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="index.html" aria-label="ФармаЛайф Desktop">
+          <span class="logo__mark" aria-hidden="true">+</span>
+          <span class="logo__text">ФармаЛайф Desktop</span>
+        </a>
+        <span class="status status--ok" id="fileStatus" title="Замовлення зберігаються у файл orders.json">● Дані у файлі</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="pagehead">
+        <div class="container">
+          <h1>Замовлення</h1>
+          <p id="summary"></p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <form id="orderForm" class="form form--grid" novalidate>
+            <h2>Нове замовлення</h2>
+            <label>Ім’я клієнта<input id="orderName" autocomplete="off" /></label>
+            <label>Телефон<input id="orderPhone" type="tel" placeholder="+380…" autocomplete="off" /></label>
+            <label class="full">Адреса доставки<input id="orderAddress" autocomplete="off" /></label>
+            <label>Сума, ₴<input id="orderTotal" inputmode="decimal" placeholder="0.00" autocomplete="off" /></label>
+            <div class="full actions">
+              <button class="btn" type="submit" id="addOrderButton">Додати замовлення</button>
+            </div>
+          </form>
+
+          <h2>Список замовлень</h2>
+          <div id="ordersBox"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© 2026 ФармаЛайф. Навчальний проєкт, ЛР №6.</p>
+        <p>Виконав: Жарков Данило, ВЕБ-21</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

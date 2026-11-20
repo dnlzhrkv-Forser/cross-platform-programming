@@ -1,0 +1,14 @@
+{
+  "name": "pharmalife-desktop",
+  "version": "1.0.0",
+  "description": "ФармаЛайф Desktop — десктопна версія застосунку інтернет-аптеки (Electron)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Жарков Данило",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^45.3.2"
+  }
+}
